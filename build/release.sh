@@ -61,7 +61,7 @@ git commit -am "Build output" 2>/dev/null
 git tag -a -m "$next_ref" $next_ref
 git tag -a -m "$next_ref" latest -f
 # Now, push the changes to the releases branch
-git push origin master:releases
+git push origin master:releases --follow-tags
 
 printf "Successful push to master:releases\n"
 
