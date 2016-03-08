@@ -2,7 +2,7 @@
   "name": "gitlab",
   "version": "0.1.2",
   "scripts": {
-    "build": "echo building && echo sumthin>dist/sumoutput",
+    "build": "echo building && echo sumthin0.1.3>dist/sumoutput",
     "test": "echo testing"
   }
 }
