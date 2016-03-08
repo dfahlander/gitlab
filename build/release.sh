@@ -29,15 +29,15 @@ next_ref="v$next_version"
 
 update_version 'package.json' $next_version
 
-#
-# Merge last release output here before rebuilding
-#
-git merge --no-edit -s ours origin/releases
-
 # Commit package.json change
 git commit package.json --allow-empty -m "Released v$next_version"
 # Save this SHA to cherry pick later
 master_release_commit=$(git rev-parse HEAD)
+
+#
+# Merge last release output here before rebuilding
+#
+git merge --no-edit -s ours origin/releases
 
 #
 # Rebuild
@@ -56,7 +56,7 @@ rm -f dist/README.md
 git add -A --no-ignore-removal -f dist/ 2>/dev/null
 
 # Commit all changes (still locally)
-git commit --amend -am "Build output for v$next_version" 2>/dev/null
+git commit -am "Build output for v$next_version" 2>/dev/null
 # Now, push the changes to the releases branch
 git push origin master:releases
 printf "Successful push to master:releases\n"
