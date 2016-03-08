@@ -2,7 +2,7 @@
   "name": "gitlab",
   "version": "0.1.5",
   "scripts": {
-    "build": "echo building && echo $RANDOM>dist/sumoutput",
+    "build": "echo building && echo $RANDOM-%RANDOM%>dist/sumoutput",
     "test": "echo testing"
   }
 }

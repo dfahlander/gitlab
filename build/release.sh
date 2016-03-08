@@ -29,6 +29,11 @@ next_ref="v$next_version"
 
 update_version 'package.json' $next_version
 
+# Update package.json
+git commit package.json --allow-empty -am "Released v$next_version"
+# Save this SHA to cherry pick later
+master_release_commit=$(git rev-parse HEAD)
+
 #
 # Merge last release output here before rebuilding
 #
@@ -45,20 +50,23 @@ npm run build
 # test
 npm test
 
-# Update package.json
-git commit --allow-empty -am "Releasing v$next_version"
-git push origin master
-
-# Force adding new dist files
-git add -A --no-ignore-removal -f dist/ 2>/dev/null
 # Dont include the README because it tells us about missing files (which is not missing now)
-git rm --cached dist/README.md
+rm -f dist/README.md
+# Force adding/removing dist files
+git add -A --no-ignore-removal -f dist/ 2>/dev/null
 # Commit all changes (still locally)
 git commit -am "Build output for v$next_version" 2>/dev/null
 # Now, push the changes to the releases branch
 git push origin master:releases
+printf "Successful push to master:releases"
 
 #npm publish
+
+printf "Successful publish to npm."
+
+# Push the update of package.json to master
+printf "Pushing Release-commit to master (with updated version in package.json)"
+git push origin $master_release_commit:master
 
 printf "Resetting to origin/master"
 git reset --hard origin/master
