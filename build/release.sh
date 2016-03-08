@@ -56,7 +56,10 @@ rm -f dist/README.md
 git add -A --no-ignore-removal -f dist/ 2>/dev/null
 
 # Commit all changes (still locally)
-git commit -am "Build output for v$next_version" 2>/dev/null
+git commit -am "Build output" 2>/dev/null
+# Tag the release
+git tag $next_ref
+git tag latest -f
 # Now, push the changes to the releases branch
 git push origin master:releases
 printf "Successful push to master:releases\n"
