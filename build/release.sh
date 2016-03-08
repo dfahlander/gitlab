@@ -58,7 +58,7 @@ git commit -am "Build output for v$next_version" 2>/dev/null
 # Now, push the changes to the releases branch
 git push origin master:releases
 
-npm publish
+#npm publish
 
 printf "Resetting to origin/master"
 git reset --hard origin/master
