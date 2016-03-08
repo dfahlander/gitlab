@@ -45,15 +45,14 @@ git merge --no-edit -s ours origin/releases
 
 # clean
 rm -rf build/tmp
+rm -rf dist/*
 # build
 npm run build
 # test
 npm test
 
-# Dont include the README because it tells us about missing files (which is not missing now)
-rm -f dist/README.md
 # Force adding/removing dist files
-git add -A --no-ignore-removal -f dist/ 2>/dev/null
+git add -A --no-ignore-removal dist/ 2>/dev/null
 
 # Commit all changes (still locally)
 git commit -am "Build output" 2>/dev/null
