@@ -1,8 +1,8 @@
 {
   "name": "gitlab",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "scripts": {
-    "build": "echo building && echo $RANDOM-%RANDOM%>dist/sumoutput",
+    "build": "echo building && echo $RANDOM-%RANDOM%>dist/sumoutput2 && echo $RANDOM-%RANDOM%>dist/sumoutput3",
     "test": "echo testing"
   }
 }
