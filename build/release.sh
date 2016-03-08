@@ -29,8 +29,8 @@ next_ref="v$next_version"
 
 update_version 'package.json' $next_version
 
-# Update package.json
-git commit package.json --allow-empty -am "Released v$next_version"
+# Commit package.json change
+git commit package.json --allow-empty -m "Released v$next_version"
 # Save this SHA to cherry pick later
 master_release_commit=$(git rev-parse HEAD)
 
