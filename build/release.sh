@@ -58,10 +58,11 @@ git add -A --no-ignore-removal -f dist/ 2>/dev/null
 # Commit all changes (still locally)
 git commit -am "Build output" 2>/dev/null
 # Tag the release
-git tag $next_ref
-git tag latest -f
+git tag -a -m "$next_ref" $next_ref
+git tag -a -m "$next_ref" latest -f
 # Now, push the changes to the releases branch
 git push origin master:releases
+
 printf "Successful push to master:releases\n"
 
 #npm publish
