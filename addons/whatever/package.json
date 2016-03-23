@@ -1,0 +1,12 @@
+{
+  "name": "junk-test-addon1",
+  "version": "1.0.0",
+  "description": "blabla",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"no test\"",
+	"build": "echo building && echo Otto>dist/sumoutput2.txt && echo $RANDOM-%RANDOM%>>dist/sumoutput2.txt && echo $RANDOM-%RANDOM%>>dist/sumoutput3"
+  },
+  "author": "",
+  "license": "ISC"
+}
