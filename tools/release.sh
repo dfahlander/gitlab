@@ -88,9 +88,9 @@ git push origin master:releases --follow-tags
 printf "Successful push to master:releases\n\n"
 
 if [ "$TAG" = "latest" ]; then
-	npm publish
+	#npm publish
 else
-    npm publish --tag $NPMTAG
+    #npm publish --tag $NPMTAG
 fi
 
 printf "Successful publish to npm.\n\n"
